@@ -13,4 +13,13 @@ class Cambio extends Model
     public function ordenador() {
         return $this->belongsTo(Ordenador::class);
     }
+
+    public function origen() {
+        return $this->belongsTo(Aula::class, 'origen_id');
+    }
+
+    public function destino() {
+        return $this->belongsTo(Aula::class, 'destino_id');
+    }
 }
+

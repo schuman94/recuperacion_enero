@@ -92,7 +92,7 @@ class OrdenadorController extends Controller
         if ($request->input('aula_id') != $ordenador->aula_id) {
             $destino = Aula::findOrFail($request->input('aula_id'))->id;
             $cambio = new Cambio();
-            $cambio->ordenador_id = $ordenador->id;
+            $cambio->ordenador_id = $ordenador->id;  //$cambio->ordenador()->associate($ordenador) Asi es mejor porque nos olvidamos de nombres de claves ajenas
             $cambio->origen_id = $ordenador->aula_id;
             $cambio->destino_id = $destino;
             $cambio->save();
